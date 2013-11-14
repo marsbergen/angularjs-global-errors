@@ -1,19 +1,19 @@
 'use strict';
 
 angular.module('GlobalErrors', [])
-	.factory('GlobalErrors', function($notification) {
+	.factory('GlobalErrors', function(notificationFactory) {
 		var errors = {
 			0: function(errorResponse) {
-				$notification.error(0, 'Error ' + errorResponse.status + ': ' + errorResponse.data);
+				notificationFactory.error(0, 'Error ' + errorResponse.status + ': ' + errorResponse.data);
 			},
 			401: function() {
-				$notification.error(401, 'Uh oh.. You are not logged in. Please log in again. Thank you.');
+				notificationFactory.error(401, 'Uh oh.. You are not logged in. Please log in again. Thank you.');
 			},
 			403: function() {
-				$notification.error(403, 'Sorry, you have not enough cats to view this');
+				notificationFactory.error(403, 'Sorry, you have not enough cats to view this');
 			},
 			500: function(errorResponse) {
-				$notification.error(500, 'Server internal error: ' + errorResponse.data);
+				notificationFactory.error(500, 'Server internal error: ' + errorResponse.data);
 			}
 		};
 
@@ -37,7 +37,7 @@ angular.module('GlobalErrors', [])
 	.config(function ($provide, $httpProvider, $compileProvider) {
 		var elementsList = $();
 
-		$httpProvider.responseInterceptors.push(function ($timeout, $q, $notification, AppLoader, GlobalErrors) {
+		$httpProvider.responseInterceptors.push(function ($timeout, $q, notificationFactory, AppLoader, GlobalErrors) {
 			return function (promise) {
 				AppLoader.show();
 				return promise.then(function (successResponse) {
