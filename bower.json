@@ -1,6 +1,6 @@
 {
 	"name": "angularjs-global-errors",
-	"version": "0.2.0",
+	"version": "0.2.1",
 	"homepage": "https://github.com/marsbergen/angularjs-global-errors",
 	"authors": [
 		"Patrick van Marsbergen <patrick@mimbee.nl>"
@@ -22,9 +22,9 @@
 		"tests"
 	],
 	"dependencies": {
-		"angular": "~1.2.0",
-		"angular-resource": "~1.2.0",
+		"angular": "~1.2",
+		"angular-resource": "~1.2",
 		"jquery": "~1.10.2",
-		"angularjs-notifications": "marsbergen/angularjs-notifications#0.2.0"
+		"angularjs-notifications": "marsbergen/angularjs-notifications#0.2.1"
 	}
 }
